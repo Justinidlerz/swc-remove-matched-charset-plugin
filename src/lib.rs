@@ -111,7 +111,7 @@ pub fn process_transform(mut program: Program, data: TransformPluginProgramMetad
     let config = from_str::<Option<Config>>(
         &data
             .get_transform_plugin_config()
-            .expect("failed to get plugin config for remove-invalid-content-plugin"),
+            .expect("failed to get plugin config for swc-remove-matched-charset-plugin"),
     )
         .expect("invalid packages")
         .unwrap_or(Config::default());

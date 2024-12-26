@@ -39,7 +39,7 @@ const createTransform = async (
   return res.code;
 };
 
-describe('swc-remove-invalid-content-plugin', () => {
+describe('swc-remove-matched-charset-plugin', () => {
   it('Should remove chinese when add chinese charset', async () => {
     const code = await createTransform('const a = "source code中文中文"', [
       '[\u4E00-\u9FFF]',

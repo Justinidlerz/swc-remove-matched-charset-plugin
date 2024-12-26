@@ -1,5 +1,5 @@
 {
-  "name": "swc-remove-invalid-content-plugin",
+  "name": "swc-remove-matched-charset-plugin",
   "version": "0.2.4",
   "description": "",
   "author": "idler.zhu<zqc.sunny@gmail.com>",
@@ -7,10 +7,10 @@
   "keywords": [
     "swc-plugin"
   ],
-  "main": "target/wasm32-wasi/release/swc_remove_invalid_content_plugin.wasm",
+  "main": "target/wasm32-wasi/release/swc-remove-matched-charset-plugin.wasm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Justinidlerz/swc-remove-invalid-content-plugin"
+    "url": "https://github.com/Justinidlerz/swc-remove-matched-charset-plugin"
   },
   "scripts": {
     "build": "cargo build-wasi --release",
@@ -18,7 +18,7 @@
     "test": "vitest run"
   },
   "files": [
-    "target/wasm32-wasi/release/swc_remove_invalid_content_plugin.wasm",
+    "target/wasm32-wasi/release/swc-remove-matched-charset-plugin.wasm",
     "CHANGELOG.md"
   ],
   "preferUnplugged": true,

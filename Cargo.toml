@@ -1,5 +1,5 @@
 [package]
-name = "swc-remove-invalid-content-plugin"
+name = "swc-remove-matched-charset-plugin"
 version = "0.1.0"
 edition = "2021"
 
