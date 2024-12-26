@@ -1,6 +1,6 @@
-# swc-remove-invalid-content-plugin
+# swc-remove-matched-charset-plugin
 
-[![Node.js Package](https://github.com/Justinidlerz/swc-remove-invalid-content-plugin/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/Justinidlerz/swc-remove-invalid-content-plugin/actions/workflows/npm-publish.yml)
+[![Node.js Package](https://github.com/Justinidlerz/swc-remove-matched-charset-plugin/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/Justinidlerz/swc-remove-matched-charset-plugin/actions/workflows/npm-publish.yml)
 
 This is only for swc javascript API plugin.  
 It can help you to remove invalid content via regexp rules from string literal of your code.
@@ -12,7 +12,7 @@ For more remove expected, you can see `tests/index.spec.ts`.
 ### Installation
 
 ```shell
-pnpm i -D swc-remove-invalid-content-plugin
+pnpm i -D swc-remove-matched-charset-plugin
 ```
 
 ### Configuration
@@ -20,7 +20,7 @@ pnpm i -D swc-remove-invalid-content-plugin
 
 ```ts
 const plugin = [
-  'swc-remove-invalid-content-plugin',
+  'swc-remove-matched-charset-plugin',
   {
     matches: ['[\u4E00-\u9FFF]', 'baidu.com|google.com'],
     replace_with: '*', // Optional
