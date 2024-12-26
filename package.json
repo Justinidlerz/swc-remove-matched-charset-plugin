@@ -7,7 +7,7 @@
   "keywords": [
     "swc-plugin"
   ],
-  "main": "target/wasm32-wasi/release/swc-remove-matched-charset-plugin.wasm",
+  "main": "target/wasm32-wasi/release/swc_remove_matched_charset_plugin.wasm",
   "repository": {
     "type": "git",
     "url": "https://github.com/Justinidlerz/swc-remove-matched-charset-plugin"
@@ -18,7 +18,7 @@
     "test": "vitest run"
   },
   "files": [
-    "target/wasm32-wasi/release/swc-remove-matched-charset-plugin.wasm",
+    "target/wasm32-wasi/release/swc_remove_matched_charset_plugin.wasm",
     "CHANGELOG.md"
   ],
   "preferUnplugged": true,
