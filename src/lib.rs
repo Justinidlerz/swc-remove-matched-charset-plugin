@@ -4,7 +4,7 @@ use swc_core::ecma::{
     ast::Program,
     ast::{Str},
     transforms::testing::test_inline,
-    visit::{as_folder, VisitMut, VisitMutWith},
+    visit::{VisitMut, VisitMutWith},
 };
 use swc_core::plugin::{plugin_transform, proxies::TransformPluginProgramMetadata};
 use regex::Regex;
@@ -12,6 +12,7 @@ use serde::Deserialize;
 use serde_json::from_str;
 use swc_core::atoms::Atom;
 use swc_core::ecma::ast::{CallExpr, ExportAll, ExportDefaultDecl, Import, ImportDecl, ImportSpecifier, JSXText, NamedExport, TplElement};
+use swc_core::ecma::visit::visit_mut_pass;
 use swc_ecma_parser::{EsSyntax, Syntax};
 
 #[derive(Deserialize, Default)]
@@ -124,7 +125,7 @@ pub fn process_transform(mut program: Program, data: TransformPluginProgramMetad
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"[\u4E00-\u9FFF]".to_string()],
         ..Default::default()
     })),
@@ -135,7 +136,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"[\u4E00-\u9FFF]".to_string()],
         ..Default::default()
     })),
@@ -146,7 +147,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(
+    |_| visit_mut_pass(RemoveInvalidContent::new(
         Config{
         matches: vec![r"[\u4E00-\u9FFF]".to_string()],
         ..Default::default()
@@ -172,7 +173,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(
+    |_| visit_mut_pass(RemoveInvalidContent::new(
         Config{
         matches: vec![r"[\u4E00-\u9FFF]".to_string()],
         ..Default::default()
@@ -198,7 +199,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -209,7 +210,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(
+    |_| visit_mut_pass(RemoveInvalidContent::new(
         Config{
         matches: vec![r"[\u4E00-\u9FFF]".to_string()],
         ..Default::default()
@@ -233,7 +234,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(
+    |_| visit_mut_pass(RemoveInvalidContent::new(
         Config{
         matches: vec![r"[\u4E00-\u9FFF]".to_string()],
         ..Default::default()
@@ -249,7 +250,7 @@ test_inline!(
         jsx: true,
         ..Default::default()
     }),
-    |_| as_folder(RemoveInvalidContent::new(
+    |_| visit_mut_pass(RemoveInvalidContent::new(
         Config{
         matches: vec![r"[\u4E00-\u9FFF]".to_string()],
         ..Default::default()
@@ -275,7 +276,7 @@ test_inline!(
         jsx: true,
         ..Default::default()
     }),
-    |_| as_folder(RemoveInvalidContent::new(
+    |_| visit_mut_pass(RemoveInvalidContent::new(
         Config{
         matches: vec![r"[\u4E00-\u9FFF]".to_string()],
         ..Default::default()
@@ -298,7 +299,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -309,7 +310,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -320,7 +321,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -331,7 +332,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -343,7 +344,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -354,7 +355,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -365,7 +366,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -376,7 +377,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -387,7 +388,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         ..Default::default()
     })),
@@ -398,7 +399,7 @@ test_inline!(
 
 test_inline!(
     Default::default(),
-    |_| as_folder(RemoveInvalidContent::new(Config{
+    |_| visit_mut_pass(RemoveInvalidContent::new(Config{
         matches: vec![r"abc.com|cde.org".to_string()],
         replace_with: Some(String::from("*"))
     })),
